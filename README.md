@@ -59,6 +59,22 @@ A continuación podéis ver el flujo completo que tiene el bot.
 
 ![Flow del Bot](docs/images/flow.jpg)
 
+## Configuración del despliegue
+
+Para desplegar el bot es necesario el **AppId** y **PasswordId** que los obtenemos desde la configuración de nuestra aplicación en el portal de Bot Framework.
+
+En nuestro caso **el bot obtiene estos valores desde las variables de entorno**. Por tanto, donde despleguemos el bot debemos crear las variables `MICROSOFT_APP_ID` y
+`MICROSOFT_APP_PASSWORD`.
+
+```js
+var connector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+```
+
+Si desplegamos en Azure con un App Service de Linux podemos crear las variables de entorno desde la Configuración de la Aplicación.
+
 ## Datos de contacto
 
 Puedes ponerte en contacto con nosotros para cualquier duda del proyecto.
